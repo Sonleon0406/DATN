@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body,
+        h1,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        /* Wrapper for centered content */
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        /* Full-width background for each bar */
+        
+        .top-bar,
+        .middle-bar,
+        .bottom-bar {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        /* Top bar */
+        
+        .top-bar {
+            background-color: #7AB12A;
+            color: white;
+            padding: 20px;
+            font-size: 14px;
+            border-radius: 0 0 0 50px;
+            margin: 0 auto;
+            /* max-width: 100%; */
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 10px;
+        }
+        
+        .social-icons a:hover {
+            color: #ccc;
+        }
+        /* Middle bar */
+        
+        .middle-bar {
+            background-color: white;
+            padding: 20px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .middle-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 70px;
+        }
+        
+        .shop-info {
+            text-align: center;
+        }
+        
+        .shop-info h1 {
+            color: #7AB12A;
+            font-size: 28px;
+        }
+        
+        .shop-info p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .cart button {
+            background-color: #7AB12A;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .cart button i {
+            margin-left: 5px;
+        }
+        /* Bottom menu bar */
+        
+        .bottom-bar {
+            background-color: #7AB12A;
+            padding: 10px 0;
+        }
+        
+        .bottom-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .menu {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            position: relative;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        /* Dropdown styling */
+        
+        nav ul li .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            border-radius: 5px;
+            z-index: 1000;
+            min-width: 150px;
+        }
+        
+        nav ul li .dropdown-menu li {
+            margin: 0;
+        }
+        
+        nav ul li .dropdown-menu li a {
+            color: #333;
+            font-size: 14px;
+            padding: 5px 10px;
+            display: block;
+            text-decoration: none;
+        }
+        
+        nav ul li .dropdown-menu li a:hover {
+            background-color: #f0f0f0;
+        }
+        /* Show dropdown when active class is applied */
+        
+        .dropdown-menu.active {
+            display: block;
+        }
+        /* Search bar */
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+        }
+        
+        .search-bar button {
+            background-color: white;
+            border: none;
+            padding: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        /* Marquee text animation */
+        
+        .marquee-text {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .marquee-container {
+            width: 70%;
+            overflow: hidden;
+        }
+        
+        .banner {
+            position: relative;
+            background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/09/banner-min.jpg');
+            background-position: center;
+            /* Căn giữa ảnh */
+            background-repeat: no-repeat;
+            /* background-size: cover; */
+            /* Ảnh sẽ tự động điều chỉnh để bao phủ toàn bộ banner */
+            height: 400px;
+            /* Chiều cao của banner, bạn có thể thay đổi */
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            color: white;
+            text-align: left;
+            padding-left: 350px;
+            object-fit: cover;
+        }
+        
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            /* Đảm bảo nội dung luôn hiển thị trên ảnh */
+        }
+        
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            /* Tạo lớp overlay mờ */
+            z-index: 0;
+        }
+        
+        .banner h1 {
+            font-size: 48px;
+            font-weight: bold;
+            z-index: 2;
+            /* Đảm bảo chữ hiển thị trên overlay */
+        }
+        
+        .banner p {
+            font-size: 18px;
+            margin: 10px 0;
+            z-index: 2;
+        }
+        
+        .banner .btn {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+        
+        .banner .btn:hover {
+            background-color: #218838;
+        }
+        /*  */
+        
+        .banner-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            /* margin-left: 330px; */
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .banner-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .banner-item img {
+            width: 100%;
+            /* height: 200px; */
+            object-fit: cover;
+            border-radius: 20px;
+            /* max-width: 1200px; */
+        }
+        
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 128, 0, 0.7);
+            /* Màu xanh nhạt với độ trong suốt */
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+        }
+        
+        .banner-text h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+        
+        .banner-text p {
+            font-size: 14px;
+            margin: 5px 0 0 0;
+        }
+        /*  */
+        
+        .containersp1 {
+            width: 90%;
+            max-width: 1200px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        
+        .headersp1 {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: space-around;
+        }
+        
+        .product-card {
+            width: calc(25% - 20px);
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .product-info {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .product-weight {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .buy-now-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-now-btn:hover {
+            background-color: #e67e22;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 0;
+            background-color: #e6ffe6;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .tab {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .tab:hover {
+            background-color: #45a049;
+        }
+        
+        .active-tab {
+            background-color: #3e8e41;
+        }
+        
+        .load-more-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .load-more-btn:hover {
+            background-color: #c0392b;
+        }
+        /*  */
+        
+        .info-section {
+            display: flex;
+            width: 100%;
+        }
+        
+        .info-card {
+            flex: 1;
+            color: white;
+            padding: 40px;
+            /* display: flex; */
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .info-card h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card .btn {
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .info-card .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .info-card img {
+            position: absolute;
+            right: -20px;
+            bottom: 0;
+            width: 120px;
+            height: auto;
+            opacity: 0.8;
+        }
+        /* Thêm ảnh nền cho từng thẻ */
+        
+        .info-card:nth-child(1) {
+            background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+        }
+        
+        .info-card:nth-child(2) {
+            background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+        }
+        
+        .info-card:nth-child(3) {
+            background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+        }
+        
+        .info-card:nth-child(4) {
+            background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+        }
+        /*  */
+        
+        .blog-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+        
+        .blog-header {
+            background-color: #82c341;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .blog-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .blog-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .blog-info {
+            padding: 15px;
+        }
+        
+        .blog-title {
+            color: #82c341;
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .blog-date {
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-description {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .about-container {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            margin: 30px auto;
+        }
+        
+        .about-header {
+            color: #82c341;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .about-description {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-description a {
+            color: #f04f30;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .more-content {
+            display: none;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            /* gap: 20px; */
+        }
+        
+        .feature-card {
+            background-color: white;
+            width: 250px;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #82c341;
+            margin-bottom: 10px;
+        }
+        
+        .feature-title {
+            color: #82c341;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            color: #bbb5b5;
+            line-height: 1.5;
+        }
+        /*  */
+        
+        .footer-section {
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+            background-color: #d7dbcf;
+            max-width: 100%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            /* line-height: 15px; */
+            /* flex-basis: 25.cm; */
+        }
+        
+        .footer-column {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            min-width: 250px;
+            /* max-width: 30px; */
+        }
+        
+        .footer-logo img {
+            width: 50%;
+            height: 50%;
+            display: block;
+            margin: 0 auto 10px;
+            background-image: none;
+            /* background-color: whitesmoke; */
+            /* opacity: 10; */
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            text-align: center;
+            color: #000;
+        }
+        
+        .footer-company-info {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.8;
+        }
+        
+        .footer-company-info strong {
+            color: #000;
+        }
+        
+        .footer-policy {
+            font-size: 14px;
+        }
+        
+        .footer-policy ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-policy ul li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-policy ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .footer-policy ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-social iframe {
+            width: 100%;
+            max-width: 340px;
+            height: 130px;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .footer-certification img {
+            width: 100px;
+            margin-top: 10px;
+        }
+        
+        .payment-icons {
+            float: none;
+            display: flex;
+            justify-content: center;
+            /* align-items: center; */
+            margin: 10px;
+            padding: 10px;
+            gap: 20px;
+        }
+        
+        .payment-icons img {
+            width: 85px;
+            height: 40px;
+            border-radius: 10px;
+        }
+        
+        .payment-icons img:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Top notification bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="marquee-container">
+                    <p class="marquee-text">Chào mừng Quý Khách Hàng đến với Trái Cây đông lạnh Lộc Phát</p>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle bar with logo, info and cart -->
+        <div class="middle-bar">
+            <div class="container">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <div class="shop-info">
+                    <h1>TRÁI CÂY ĐÔNG LẠNH LỘC PHÁT</h1>
+                    <p>
+                        <i class="fas fa-truck"></i> Trụ sở chính: Thôn 6, Ia Băng, Đak Đoa, Gia Lai <br>
+                        <i class="fas fa-phone"></i> Hotline: 0383.798.631 - 0867.907.868
+                    </p>
+                </div>
+                <div class="cart">
+                    <button>GIỎ HÀNG / 0 VND <i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom menu bar -->
+        <div class="bottom-bar">
+            <div class="container">
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Trang chủ</a></li>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle">Sản phẩm <i class="fas fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Sản phẩm 1</a></li>
+                                    <li><a href="#">Sản phẩm 2</a></li>
+                                    <li><a href="#">Sản phẩm 3</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Hệ thống</a></li>
+                            <li><a href="#">Tin tức</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Vinada Frozen Fruits</h1>
+            <p>Let’s Enjoy It!</p>
+            <p>Mang đến cho người tiêu dùng những sản phẩm trái cây đông lạnh tiện lợi và chất lượng nhất</p>
+            <a href="#" class="btn">Xem thêm</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="banner-section">
+            <div class="banner-item">
+                <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/vs3-3773.png" alt="Đảm Bảo Cung Cấp">
+                <div class="banner-text">
+                    <h3>ĐẢM BẢO CUNG CẤP</h3>
+                    <p>NGUỒN HÀNG ỔN ĐỊNH QUANH NĂM</p>
+                </div>
+            </div>
+            <div class="banner-item">
+                <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/vs2-2611.png" alt="Đảm Bảo Chất Lượng">
+                <div class="banner-text">
+                    <h3>ĐẢM BẢO CHẤT LƯỢNG</h3>
+                    <p>VỆ SINH – AN TOÀN THỰC PHẨM</p>
+                </div>
+            </div>
+            <div class="banner-item">
+                <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/vs1-5929.png" alt="Bình Ổn Thị Trường">
+                <div class="banner-text">
+                    <h3>BÌNH ỔN THỊ TRƯỜNG</h3>
+                    <p>GIÁ CẢ HÀNG HÓA TRONG VÀ NGOÀI MÙA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="containersp1">
+            <div class="headersp1">SẢN PHẨM BÁN CHẠY</div>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Mãng Cầu">
+                    <div class="product-info">
+                        <div class="product-name">Mãng cầu đông lạnh 1kg</div>
+                        <div class="product-weight">1 bích / 1kg</div>
+                        <div class="product-price">85,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Sầu Riêng">
+                    <div class="product-info">
+                        <div class="product-name">Sầu riêng đông lạnh 1kg</div>
+                        <div class="product-weight">1 bích / 1kg</div>
+                        <div class="product-price">110,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Xoài Cát Chu">
+                    <div class="product-info">
+                        <div class="product-name">Xoài Cát Chu đông lạnh định lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">85,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- Tabs section -->
+            <div class="tabs">
+                <a href="#" class="tab active-tab">Tất Cả</a>
+                <a href="#" class="tab">Bơ Đông Lạnh</a>
+                <a href="#" class="tab">Dâu Tây Đông Lạnh</a>
+                <a href="#" class="tab">Mãng Cầu Đông Lạnh</a>
+                <a href="#" class="tab">Sapoche Đông Lạnh</a>
+                <a href="#" class="tab">Sầu Riêng Đông Lạnh</a>
+                <a href="#" class="tab">Xoài Đông Lạnh</a>
+            </div>
+
+            <!-- Product grid -->
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/Bo-dong-lanh-Loc-Phat-2.jpg" alt="Bơ Booth">
+                    <div class="product-info">
+                        <div class="product-name">Bơ Booth/034 Đông Lạnh Định Lượng 100gr</div>
+                        <div class="product-weight">Định lượng 100gr/10 gói</div>
+                        <div class="product-price">70,000 VNĐ</div>
+                        <a href="#" class="buy-now-btn">MUA NGAY</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="load-more-btn">XEM THÊM</a>
+        </div>
+    </section>
+
+    <section>
+        <div class="info-section">
+            <!-- Card 1 -->
+            <div class="info-card">
+                <h3>NGUỒN CUNG ỔN ĐỊNH</h3>
+                <p>Với sản lượng hơn 100 tấn mỗi năm, chúng tôi cam kết cung cấp ổn định về số lượng cho các đối tác và Quý Khách Hàng trong cả nước</p>
+                <a href="#" class="btn">XEM NGAY</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="info-card">
+                <h3>GIÁ CẢ BÌNH ỔN</h3>
+                <p>Với trữ lượng lớn quanh năm, Trái cây đông lạnh Lộc Phát mang đến cho Quý Khách Hàng và các Đối Tác sự bình ổn về giá cả trong và ngoài mùa</p>
+                <a href="#" class="btn">XEM NGAY</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="info-card">
+                <h3>MẪU MÃ ĐA DẠNG</h3>
+                <p>Với sự đa dạng về mẫu mã, Trái cây đông lạnh Lộc Phát đem đến sự tiện lợi trong việc chế biến sản phẩm cũng như bảo quản lâu dài</p>
+                <a href="#" class="btn">XEM NGAY</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="info-card">
+                <h3>ĐẢM BẢO VSATTP</h3>
+                <p>Chúng tôi cam kết 100% các sản phẩm có nguồn gốc xuất xứ rõ ràng, đảm bảo VSATTP cũng như chất lượng ngon nhất cho người tiêu dùng</p>
+                <a href="#" class="btn">XEM NGAY</a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="blog-container">
+            <div class="blog-header">BLOG CHIA SẺ</div>
+            <div class="blog-content">
+                <div class="blog-item">
+                    <img src="https://via.placeholder.com/350x200" alt="Blog Image 1">
+                    <div class="blog-info">
+                        <div class="blog-title">Ăn sầu riêng có béo không? Sầu riêng có bao nhiêu calo?</div>
+                        <div class="blog-date">27/06/2024</div>
+                        <div class="blog-description">“Ăn sầu riêng có béo không?” là một câu hỏi phổ biến đối với những ai đang quan tâm đến việc kiểm soát cân nặng hoặc...</div>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="https://via.placeholder.com/350x200" alt="Blog Image 2">
+                    <div class="blog-info">
+                        <div class="blog-title">Ăn sầu riêng có tốt không? 10 lợi ích tuyệt vời của sầu riêng</div>
+                        <div class="blog-date">27/06/2024</div>
+                        <div class="blog-description">Ăn sầu riêng có tốt không? là chủ đề gây nhiều tranh cãi và là thắc mắc của rất nhiều người. Người thì rất yêu thích...</div>
+                    </div>
+                </div>
+
+                <div class="blog-item">
+                    <img src="https://via.placeholder.com/350x200" alt="Blog Image 3">
+                    <div class="blog-info">
+                        <div class="blog-title">Bà bầu ăn bơ có tốt không? Lợi ích và cách ăn bơ để có một thai kỳ khỏe mạnh</div>
+                        <div class="blog-date">09/06/2024</div>
+                        <div class="blog-description">Trong hành trình mang thai, việc lựa chọn thực phẩm lành mạnh và bổ dưỡng để đảm bảo sức khỏe của cả mẹ và bé luôn...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--  -->
+        <div class="about-container">
+            <div class="about-header">VỀ CHÚNG TÔI</div>
+            <div class="about-description">
+                Trái cây đông lạnh Lộc Phát được điều hành bởi <strong>Công ty TNHH SX-TM-DV Thực phẩm Lộc Phát</strong> được thành lập ngày 03/10/2023, MST: 5901204022 do Sở kế hoạch và đầu tư tỉnh Gia Lai cấp cho ông Nguyễn Thanh Phúc làm chủ. Với sứ
+                mệnh sản xuất và cung cấp các mặt hàng trái cây đông lạnh được thu mua, sơ chế và...
+                <a onclick="toggleContent()">Xem thêm >></a>
+                <div class="more-content">
+                    ...chế biến theo quy trình nghiêm ngặt, nhằm đảm bảo chất lượng tốt nhất cho người tiêu dùng. Công ty cam kết mang đến sản phẩm an toàn và đáng tin cậy cho khách hàng.
+                </div>
+            </div>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🍏</div>
+                    <div class="feature-title">Đa dạng sản phẩm</div>
+                    <div class="feature-description">Công ty cung cấp nhiều loại sản phẩm trái cây đông lạnh</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <div class="feature-title">An toàn sinh học</div>
+                    <div class="feature-description">Sản phẩm đông gói đạt chuẩn chất lượng an toàn VSTP</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍇</div>
+                    <div class="feature-title">Thực phẩm sạch</div>
+                    <div class="feature-description">Cung cấp các loại trái cây sạch từ vườn đến tay người dùng</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-title">Xuất xứ rõ ràng</div>
+                    <div class="feature-description">Trái cây đông lạnh có nguồn gốc xuất xứ theo quy định của tiêu chí Vệ sinh ATTP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-section">
+        <!-- Logo and Description -->
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/themes/tiencuong-wordpress/images/thiet-ke-chua-co-ten-59-7873.png" alt="Company Logo">
+            </div>
+            <div class="footer-text">
+                Mang đến cho người tiêu dùng những sản phẩm trái cây đông lạnh tiện lợi và chất lượng nhất
+            </div>
+        </div>
+
+        <!-- Company Info -->
+        <div class="footer-column">
+            <p class="footer-company-info"><strong>CÔNG TY TNHH SX-TM-DV THỰC PHẨM LỘC PHÁT</strong></p>
+            <p class="footer-company-info"><img src="https://via.placeholder.com/28" alt="Address Icon"> <strong>Địa chỉ:</strong> Thôn 6, Ia Băng, Đak Đoa, Gia Lai</p>
+            <p class="footer-company-info"><img src="https://via.placeholder.com/28" alt="Email Icon"> <strong>Email:</strong> <a href="mailto:locphatfrozenfoods@gmail.com">locphatfrozenfoods@gmail.com</a></p>
+            <p class="footer-company-info"><img src="https://via.placeholder.com/28" alt="Phone Icon"> <strong>Hotline:</strong> <a href="https://zalo.me/0383798631">0383798631</a> – <a href="https://zalo.me/0867907868">0867907868</a></p>
+            <p class="footer-company-info"><img src="https://via.placeholder.com/28" alt="Tax Icon"> <strong>MST:</strong> 5901204022 do sở KH & ĐT Gia Lai<br>cấp ngày 03/10/2023</p>
+        </div>
+
+        <!-- Policies -->
+        <div class="footer-column footer-policy">
+            <p><strong>CHÍNH SÁCH</strong></p>
+            <ul>
+                <li><a href="/huong-dan-mua-hang">Hướng Dẫn Mua Hàng</a></li>
+                <li><a href="/chinh-sach-bao-mat">Chính Sách Bảo Mật</a></li>
+                <li><a href="/chinh-sach-thanh-toan">Chính Sách Thanh Toán</a></li>
+                <li><a href="/chinh-sach-van-chuyen">Chính Sách Vận Chuyển</a></li>
+                <li><a href="/chinh-sach-doi-tra">Chính Sách Đổi Trả</a></li>
+                <li><a href="/dieu-khoan-dich-vu">Điều Khoản Dịch Vụ</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media & Certification -->
+        <div class="footer-column footer-social">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftraicaydonglanhlocphathcm&amp;tabs=timeline&amp;width=340&amp;height=100&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=false&amp;appId"
+                title="Facebook Page"></iframe>
+            <div class="footer-certification">
+                <a href="http://online.gov.vn/Home/WebDetails/116179" target="_blank" rel="nofollow noopener">
+                    <img src="https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/logoSaleNoti.webp" alt="Certification Logo">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="payment-icons">
+                <img src="https://via.placeholder.com/50x20?text=VISA" alt="Visa">
+                <img src="https://via.placeholder.com/50x20?text=PayPal" alt="PayPal">
+                <img src="https://via.placeholder.com/50x20?text=Stripe" alt="Stripe">
+                <img src="https://via.placeholder.com/50x20?text=MasterCard" alt="MasterCard">
+                <img src="https://via.placeholder.com/50x20?text=Cash+on+Delivery" alt="Cash on Delivery">
+            </div>
+            <p>© 2024. Công ty TNHH SX-TM-DV Thực Phẩm ABC. GPDKKD: XXXXXXX. Địa chỉ: Thôn 6, Ia Băng, Đak Đoa, Gia Lai. Địa chỉ liên hệ và gửi chứng từ: Thôn 6, Ia Băng, Đak Đoa, Gia Lai.</p>
+            <p>Điện thoại: 086792238. Email: lacbc@gmail.com. Chịu trách nhiệm nội dung: Nguyễn Anh Minh. Email: abcdeds@gmail.com.</p>
+        </div>
+    </footer>
+</body>
+<script>
+    function toggleContent() {
+        const moreContent = document.querySelector('.more-content');
+        if (moreContent.style.display === 'none' || moreContent.style.display === '') {
+            moreContent.style.display = 'block';
+        } else {
+            moreContent.style.display = 'none';
+        }
+    }
+</script>
+
+</html>

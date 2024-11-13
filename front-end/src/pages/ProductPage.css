@@ -1,0 +1,127 @@
+.product-page {
+    display: flex;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    margin-right: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.sidebar h3 {
+    font-size: 18px;
+    color: #7AB12A;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+    cursor: pointer;
+    color: #333;
+    font-size: 16px;
+}
+
+.sidebar ul li.active {
+    font-weight: bold;
+    color: #7AB12A;
+}
+
+.sidebar ul li:hover {
+    color: #7AB12A;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: #f0f8ff;
+    /* Màu nền nhẹ nhàng hơn */
+    margin: 20px auto;
+    /* Tạo khoảng cách đồng đều cho lưới sản phẩm */
+    max-width: 1200px;
+    /* Giới hạn chiều rộng lưới */
+}
+
+.product-card {
+    width: calc(25% - 20px);
+    background-color: #ffffff;
+    /* Màu nền trắng cho sản phẩm */
+    border: 1px solid #ddd;
+    /* Đường viền nhẹ */
+    border-radius: 10px;
+    /* Bo góc mềm mại hơn */
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Hiệu ứng đổ bóng tinh tế hơn */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    /* Tăng hiệu ứng đổ bóng khi hover */
+}
+
+.product-card img {
+    width: 100%;
+    /* height: 200px; */
+    /* Giữ tỷ lệ ảnh đều cho tất cả sản phẩm */
+    object-fit: cover;
+    /* Đảm bảo ảnh không bị méo */
+    display: block;
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    /* Chữ hoa đầu mỗi từ */
+}
+
+.product-weight {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.buy-now-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.buy-now-btn:hover {
+    background-color: #e67e22;
+    cursor: pointer;
+    /* Con trỏ thay đổi thành bàn tay khi hover */
+}

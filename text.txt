@@ -1,0 +1,26 @@
+[
+    {
+        "username": "nguyenvana",  
+        "password": "123",     
+        "email": "nguyenvana@gmail.com", 
+        "role": "customer" 
+    },
+    {
+        "username":"Nguyễn Văn A",
+        "password":"234",
+        "email":"nguyenvanA@gmail.com",
+        "role":"customer"
+    },
+    {
+        "username":"Nguyễn Văn B",
+        "password":"345",
+        "email":"nguyenvanB@gmail.com",
+        "role":"customer"
+    },
+     {
+        "username":"Trần Văn C",
+        "password":"3456",
+        "email":"tranvanc@gmail.com",
+        "role":"customer"
+    }
+]

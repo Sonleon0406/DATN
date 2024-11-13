@@ -1,0 +1,895 @@
+/* Đặt lại margin và padding cho toàn bộ trang */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Đặt font mặc định */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    /* margin: 50px auto; */
+}
+
+
+/* Thanh trên cùng */
+
+.top-bar {
+    background-color: #7AB12A;
+    color: white;
+    padding: 20px;
+    font-size: 14px;
+    /* border-radius: 0 0 0 50px; */
+}
+
+.top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-icons a {
+    color: white;
+    margin-left: 10px;
+}
+
+.social-icons a:hover {
+    color: #ccc;
+}
+
+
+/* Thanh giữa */
+
+.middle-bar {
+    background-color: white;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.middle-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px;
+}
+
+.shop-info {
+    text-align: center;
+}
+
+.shop-info h1 {
+    color: #7AB12A;
+    font-size: 28px;
+}
+
+.shop-info p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.cart button {
+    background-color: #7AB12A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cart button i {
+    margin-left: 5px;
+}
+
+
+/* Thanh dưới cùng (menu) */
+
+.bottom-bar {
+    background-color: #7AB12A;
+    padding: 10px 0;
+}
+
+.bottom-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-grow: 1;
+    overflow: visible;
+    /* Đảm bảo menu không bị cắt */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: normal;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+/* Dropdown menu */
+
+nav ul li .dropdown-menu {
+    display: none;
+    /* Ẩn mặc định */
+    position: absolute;
+    /* Đặt vị trí tuyệt đối */
+    top: 100%;
+    /* Xuất hiện ngay dưới mục cha */
+    left: 0;
+    /* Căn trái với mục cha */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 165px;
+    opacity: 0;
+    /* Ẩn hoàn toàn */
+    transition: opacity 0.3s ease;
+    /* Thêm hiệu ứng chuyển tiếp */
+}
+
+.dropdown-menu.active {
+    display: block;
+    /* Hiện dropdown khi có class active */
+    opacity: 1;
+    /* Hiện ra từ từ */
+}
+
+nav ul li .dropdown-menu li a {
+    color: #333;
+    font-size: 14px;
+    padding: 5px 10px;
+    display: block;
+    text-decoration: none;
+}
+
+nav ul li .dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+
+/* Hiển thị dropdown khi có class 'active' */
+
+.dropdown-menu.active {
+    display: block;
+}
+
+
+/* Thanh tìm kiếm */
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+}
+
+.search-bar button {
+    background-color: #7AB12A;
+    /* Thêm màu nền */
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.search-bar button i {
+    color: white;
+}
+
+
+/* Hiệu ứng chạy chữ cho marquee */
+
+.marquee-text {
+    white-space: nowrap;
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    font-size: 14px;
+    font-style: italic;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-container {
+    width: 70%;
+    overflow: hidden;
+}
+
+h1,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    position: relative;
+    background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/09/banner-min.jpg');
+    background-position: center;
+    /* Căn giữa ảnh */
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* Ảnh sẽ tự động điều chỉnh để bao phủ toàn bộ banner */
+    height: 400px;
+    /* Chiều cao của banner, bạn có thể thay đổi */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    text-align: left;
+    padding-left: 350px;
+    object-fit: cover;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+    /* Đảm bảo nội dung luôn hiển thị trên ảnh */
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* Tạo lớp overlay mờ */
+    z-index: 0;
+}
+
+.banner h1 {
+    font-size: 48px;
+    font-weight: bold;
+    z-index: 2;
+    /* Đảm bảo chữ hiển thị trên overlay */
+}
+
+.banner p {
+    font-size: 18px;
+    margin: 10px 0;
+    z-index: 2;
+}
+
+.banner .btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    z-index: 2;
+}
+
+.banner .btn:hover {
+    background-color: #218838;
+}
+
+
+/*  */
+
+.footer-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    background-color: #d7dbcf;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* line-height: 15px; */
+    /* flex-basis: 25.cm; */
+}
+
+.footer-column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    min-width: 250px;
+    /* max-width: 30px; */
+}
+
+.footer-logo img {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin: 0 auto 10px;
+    background-image: none;
+    /* background-color: whitesmoke; */
+    /* opacity: 10; */
+}
+
+.footer-text {
+    font-size: 13px;
+    text-align: center;
+    color: #000;
+}
+
+.footer-company-info {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.footer-company-info strong {
+    color: #000;
+}
+
+.footer-policy {
+    font-size: 14px;
+}
+
+.footer-policy ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-policy ul li {
+    margin-bottom: 8px;
+}
+
+.footer-policy ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer-policy ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-social iframe {
+    width: 100%;
+    max-width: 340px;
+    height: 130px;
+    border: none;
+    overflow: hidden;
+}
+
+.footer-certification img {
+    width: 200px;
+    margin-top: 10px;
+}
+
+.payment-icons {
+    float: none;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin: 10px;
+    padding: 10px;
+    gap: 20px;
+}
+
+.payment-icons img {
+    width: 85px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.payment-icons img:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+
+/*  */
+
+.banner-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    /* margin-left: 330px; */
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.banner-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.banner-item img {
+    width: 100%;
+    /* height: 200px; */
+    object-fit: cover;
+    border-radius: 20px;
+    /* max-width: 1200px; */
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 128, 0, 0.7);
+    /* Màu xanh nhạt với độ trong suốt */
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.banner-text h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.banner-text p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+}
+
+
+/*  */
+
+.containersp1 {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #4CAF50;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.headersp1 {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: aliceblue;
+    margin: 10px;
+}
+
+.product-card {
+    width: calc(25% - 20px);
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-weight {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.buy-now-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.buy-now-btn:hover {
+    background-color: #e67e22;
+}
+
+
+/*  */
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    background-color: #4CAF50;
+    border-bottom: 2px solid #ddd;
+    border-radius: 20px;
+}
+
+.tab {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    border: 1px solid #ffffff;
+}
+
+.tab:hover {
+    background-color: #45a049;
+}
+
+.active-tab {
+    background-color: #3e8e41;
+}
+
+.load-more-btn {
+    display: block;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #e74c3c;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.load-more-btn:hover {
+    background-color: #c0392b;
+}
+
+.container0 {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    margin: 50px auto;
+}
+
+.info-section {
+    display: flex;
+    width: 100%;
+    height: 250px;
+}
+
+.info-card {
+    flex: 1;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    /* width: 150px; */
+}
+
+.info-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.info-card .btn {
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 150px;
+}
+
+.info-card .btn:hover {
+    background-color: #c0392b;
+}
+
+.info-card img {
+    position: absolute;
+    right: -20px;
+    bottom: 0;
+    width: 120px;
+    height: auto;
+    opacity: 0.8;
+}
+
+
+/* Thêm ảnh nền cho từng thẻ */
+
+.info-card:nth-child(1) {
+    background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+}
+
+.info-card:nth-child(2) {
+    background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+}
+
+.info-card:nth-child(3) {
+    background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+}
+
+.info-card:nth-child(4) {
+    background-image: url('https://traicaydonglanh.giaodienwebmau.com/wp-content/uploads/2024/06/traicay3-1638.png');
+}
+
+
+/*  */
+
+.blog-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.blog-header {
+    background-color: #82c341;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.blog-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.blog-item {
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.blog-info {
+    padding: 15px;
+}
+
+.blog-title {
+    color: #82c341;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.blog-date {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.blog-description {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.about-header {
+    color: #82c341;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.about-description {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-description a {
+    color: #f04f30;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.more-content {
+    display: none;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* gap: 20px; */
+}
+
+.feature-card {
+    background-color: white;
+    width: 250px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.feature-icon {
+    font-size: 40px;
+    color: #82c341;
+    margin-bottom: 10px;
+}
+
+.feature-title {
+    color: #82c341;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feature-description {
+    font-size: 14px;
+    color: #bbb5b5;
+    line-height: 1.5;
+}
+
+.about-container {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    padding: 20px;
+    max-width: 1200px;
+    text-align: left;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #888;
+}
+
+.title-main {
+    color: #73b141;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #73b141;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+strong {
+    font-weight: bold;
+}
